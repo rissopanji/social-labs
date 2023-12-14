@@ -42,6 +42,7 @@ const filteredFields = [
   "tweet_url",
   "image_url",
   "location",
+  "followers_count",
 ];
 
 type StartCrawlTwitterParams = {
@@ -310,6 +311,7 @@ export async function crawl({
             tweet["tweet_url"] = `https://twitter.com/${current.user.screen_name}/status/${tweet.id_str}`;
             tweet["image_url"] = current.tweet.entities?.media?.[0]?.media_url_https || "";
             tweet["location"] = current.user.location || "";
+            tweet["followers_count"] = current.user.followers_count || "";
 
             const row = Object.values(convertValuesToStrings(tweet)).join(",");
 
