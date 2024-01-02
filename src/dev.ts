@@ -10,9 +10,9 @@ function getFormattedDate(date) {
 }
 
 // Tanggal awal dan akhir dalam format YYYY-MM-DD
-const startDate = new Date("2023-12-20");
-const endDate = new Date("2023-12-22");
-const keyword = "covid";
+const startDate = new Date("2023-12-22");
+const endDate = new Date("2023-12-25");
+const keyword = "Pandemi";
 
 // Fungsi untuk melakukan crawling pada tanggal tertentu
 async function crawlForDate(startDate, endDate) {

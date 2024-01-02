@@ -46,13 +46,13 @@ function getFormattedDate(date) {
     return "".concat(year, "-").concat(month, "-").concat(day);
 }
 // Tanggal awal dan akhir dalam format YYYY-MM-DD
-var startDate = new Date("2023-12-04");
-var endDate = new Date("2023-12-05");
-var keyword = "gibran";
+var startDate = new Date("2023-12-20");
+var endDate = new Date("2023-12-22");
+var keyword = "covid";
 // Fungsi untuk melakukan crawling pada tanggal tertentu
 function crawlForDate(startDate, endDate) {
     return __awaiter(this, void 0, void 0, function () {
-        var formattedStartDate, formattedEndDate, config;
+        var formattedStartDate, formattedEndDate, config, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -64,12 +64,22 @@ function crawlForDate(startDate, endDate) {
                         TARGET_TWEET_COUNT: 1500,
                         OUTPUT_FILENAME: "".concat(keyword, "_").concat(formattedStartDate, ".csv"),
                         DELAY_EACH_TWEET_SECONDS: 0.1,
+                        DELAY_EVERY_100_TWEETS_SECONDS: 5,
                         SEARCH_TAB: "TOP",
                     };
-                    return [4 /*yield*/, (0, crawl_1.crawl)(config)];
+                    _a.label = 1;
                 case 1:
+                    _a.trys.push([1, 3, , 4]);
+                    return [4 /*yield*/, (0, crawl_1.crawl)(config)];
+                case 2:
                     _a.sent();
-                    return [2 /*return*/];
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_1 = _a.sent();
+                    console.error("Error crawling for date ".concat(formattedStartDate, ": ").concat(error_1));
+                    console.log(error_1);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
             }
         });
     });

@@ -109,7 +109,6 @@ var filteredFields = [
     "tweet_url",
     "image_url",
     "location",
-    "followers_count",
 ];
 function convertValuesToStrings(obj) {
     var result = {};
@@ -269,7 +268,6 @@ function crawl(_a) {
                                                         tweet["tweet_url"] = "https://twitter.com/".concat(current.user.screen_name, "/status/").concat(tweet.id_str);
                                                         tweet["image_url"] = ((_c = (_b = (_a = current.tweet.entities) === null || _a === void 0 ? void 0 : _a.media) === null || _b === void 0 ? void 0 : _b[0]) === null || _c === void 0 ? void 0 : _c.media_url_https) || "";
                                                         tweet["location"] = current.user.location || "";
-                                                        tweet["followers_count"] = current.user.followers_count || "";
                                                         var row = Object.values(convertValuesToStrings(tweet)).join(",");
                                                         return __spreadArray(__spreadArray([], prev, true), [row], false);
                                                     }, []);
